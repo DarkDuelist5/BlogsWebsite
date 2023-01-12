@@ -1,0 +1,37 @@
+<%- include("partials/header") -%>
+
+    <h2>Blogs written by you:</h2>
+
+    <% if(writtenBlogs.length===0) { %>
+        <h3>Nothing to see as you have written no blogs yet.</h3>
+        <% } else { %>
+            <form action="/delete" method="post">
+
+                <% for(let i=0; i<writtenBlogs.length; i++) { %>
+
+                    <div style="display: flex; width: 70%;">
+                        <input type="checkbox" name="todel" value="<%=writtenBlogs[i]._id%>" id="" style="width: 20px;">
+                        <div style="width: 30px;"></div>
+                        <a style="text-decoration: none; color: inherit; width: 100%;" href="/posts/<%=writtenBlogs[i]._id%>">
+                        <div class="postholder" style="width: 100%;">
+                            <h1>
+                                <%= writtenBlogs[i].title%>
+                            </h1>
+                            <div class="blog" style="display: flex;">
+                                <p style="text-overflow: ellipsis; overflow: hidden; max-width: 75ch; white-space: nowrap;">
+                                    <%=writtenBlogs[i].body %>
+                                </p>
+                            </div>
+                        </div>
+                        </a>
+                    </div>
+                    <% } %>
+
+                        <button id="del"
+                            style="color: white; background-color: green; padding: 10px; border-radius: 10px; margin-top: 20px;"
+                            type="submit">Delete Selected Blogs</button>
+            </form>
+
+            <% } %>
+
+            

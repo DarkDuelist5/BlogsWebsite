@@ -1,0 +1,80 @@
+.testimonial-box{
+    width: 500px;
+    box-shadow: 2px 2px 30px rgba(0,0,0,0.1);
+    background-color: white;
+    padding: 20px;
+    cursor: pointer;
+    margin-top: 25px;
+}
+.profile-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    margin-right: 10px;
+}
+.profile-img img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+.profile{
+    display: flex;
+    align-items: center;
+}
+.namme-user{
+    display: flex;
+    flex-direction: column;
+}
+.namme-user strong{
+    color: gray;
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+.reviews{
+    color: yellow;
+}
+.box-top{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.client-commment{
+    font-size: 0.9rem;
+    color: grey;
+}
+#typearea{
+    padding: 5px;
+}
+#upper{
+    display: flex;
+    width: 50%;
+    margin-top: 40px;
+    
+}
+#upper #postButton{
+    margin: auto;
+    display: flex;
+    align-items: center;
+    border: 1px solid black;
+    border-radius: 50%;
+    height: 50px;
+    width: 55px;
+    padding: 10px;
+}
+#postButton i:hover{
+    color: red !important;
+}
+
+#commentsHeading{
+    margin-top: 100px;
+}
+#upvote{
+    padding: 10px;
+}
+#upvote:hover{
+    background-color: rgb(206, 206, 206);
+}

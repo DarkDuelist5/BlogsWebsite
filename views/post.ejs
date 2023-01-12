@@ -1,0 +1,62 @@
+<%- include("partials/header")-%>
+    <div style="display: flex;">
+    <h1>
+        <%=foundBlog.title%>
+    </h1>
+    <div id="upvote" style="margin-left: 700px; display: flex; align-items: center;"><i class="fa-solid fa-thumbs-up" id="upvote" style="font-size: 3.5rem; color: black;"></i></div>
+    </div>
+    <p>
+        <%=foundBlog.body %>
+    </p>
+    
+    <div></div>
+    <h2 id="commentsHeading">Comments:-</h2>
+    <form action="/comment" method="post">
+        <div id="upper">
+            <input type="hidden" name="blogname" value="<%=foundBlog._id%>">
+            <textarea maxlength="50" name="cbody" id="typearea" cols="70" rows="4"
+                placeholder="Write your comment here."></textarea>
+            <div id="postButton" style="margin-left: 20px;" onclick="document.querySelector('form').submit();"><i
+                    class="material-icons" style="font-size:36px; color: rgb(31, 31, 117);">send</i></div>
+        </div>
+    </form>
+
+    <div style="width: 35px;"></div>
+    <%for(let i=0; i<foundBlog.comments.length; i++) { %>
+        <div class="testimonial-box">
+            <div class="box-top">
+                <div class="profile">
+                    <div class="profile-img">
+                        <img src="<%=foundBlog.comments[i].authorpic%>" alt="">
+                    </div>
+                    <div class="name-user">
+                        <strong>
+                            <%=foundBlog.comments[i].authorname%>
+                        </strong>
+                    </div>
+                </div>
+                <div class="reviews"></div>
+            </div>
+            <div class="client-comment">
+                <p style="overflow: hidden;"><%=foundBlog.comments[i].content%></p>
+            </div>
+        </div>
+        <%}%>
+
+
+<p style="height: 20px;"></p>
+
+</body>
+
+<script>
+    let thumbsup = document.querySelector("#upvote");
+    let bt = thumbsup.querySelector("i");
+    thumbsup.addEventListener("click", function(){
+        if(bt.style.color == "black"){
+            bt.style.color = "yellow";
+        }
+        else{
+            bt.style.color = "black";
+        }
+    });
+</script>

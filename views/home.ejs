@@ -1,0 +1,27 @@
+<%- include("partials/header"); -%>
+
+    <h2>List Of All Blogs Sorted by Read Count:-</h2>
+    <h4>Click item to view full blog.</h4>
+
+    <% for(let i = 0; i<blogList.length; i++) { %>
+    <a style="text-decoration: none; color: inherit;" href="/posts/<%=blogList[i]._id%>" >
+        <div class="postholder">
+            <h1>
+                <%=blogList[i].title%>
+            </h1>
+            <h4><i>
+                    Author: <%=blogList[i].author%> | Posted On: <%=blogList[i].date %>
+                </i> </h4>
+            <div class="blog" style="display: flex;">
+                <p style="text-overflow: ellipsis; overflow: hidden; max-width: 100ch; white-space: nowrap;">
+                    <%= blogList[i].body%>
+                </p>
+            </div>
+            <div>
+                <p><i style="color: gray;">Read Count: <%=blogList[i].likes%></i></p>
+            </div>
+        </div>
+    </a>
+
+    <% } %>
+
